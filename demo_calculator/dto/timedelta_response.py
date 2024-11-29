@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-class TimeDeltaResponse():
+class TimedeltaResponse():
     delta: timedelta
     explanation: str
 

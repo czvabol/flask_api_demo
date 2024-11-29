@@ -11,7 +11,7 @@ class TwoTimestampRequest(BaseModel):
             'timestamp2': self.timestamp2
         }
 
-    @validator
+    @validator('timestamp2')
     def validate_timestamps(cls, values):
         timestamp1, timestamp2 = values.get('timestamp1'), values.get('timestamp2')
         if timestamp1 > timestamp2:
