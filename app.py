@@ -14,6 +14,7 @@ from demo_calculator.controllers.multiplication import Multiplication
 from demo_calculator.controllers.division import Division
 from demo_calculator.controllers.add_days import AddDays
 from demo_calculator.controllers.timestamp_subtraction import TimestampSubtraction
+from demo_calculator.controllers.health_check import HealthCheck
 
 
 
@@ -64,8 +65,8 @@ api.add_resource(Multiplication, '/multiply', resource_class_kwargs=api_args)
 api.add_resource(Division, '/divide', resource_class_kwargs=api_args)
 api.add_resource(AddDays, '/add_days', resource_class_kwargs=api_args)
 api.add_resource(TimestampSubtraction, '/subtract_timestamp', resource_class_kwargs=api_args)
-
+api.add_resource(HealthCheck, '/health')
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5002, debug=True)
+    app.run(host='0.0.0.0', port=5010, debug=True)

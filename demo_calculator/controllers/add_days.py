@@ -9,11 +9,14 @@ class AddDays(BackgroundResource):
     def post(self):
         requestData: TimestampNumberRequest = TimestampNumberRequest.parse_obj(request.json)
 
-        service = self.Container.Calculator
+        service = self.Container.DatetimeCalculator
+        logger = self.Container.Logger
 
-        result = service.add_days(requestData.timestamp, requestData.days)
+        result = service.add_days(requestData.stamp, requestData.days)
+        explanation = f'{requestData.stamp} + {requestData.days} days = {result}'
+        logger.debug(explanation)
 
-        response = DatetimeResponse(result)
+        response = DatetimeResponse(result, explanation).to_dict()
 
         return jsonify(response)
 

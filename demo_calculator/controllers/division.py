@@ -9,9 +9,12 @@ class Division(BackgroundResource):
         requestData: TwoNumbersRequest = TwoNumbersRequest.parse_obj(request.json)
 
         service: AbstractCalculator = self.Container.Calculator
+        logger = self.Container.Logger
 
         result = service.divide(requestData.a, requestData.b)
+        explanation = f'{requestData.a} / {requestData.b} = {result}'
+        logger.debug(explanation)
 
-        response = NumberResponse(result)
+        response = NumberResponse(result, explanation).to_dict()
 
         return jsonify(response)

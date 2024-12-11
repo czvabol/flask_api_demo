@@ -1,11 +1,11 @@
 from datetime import timedelta
 
 class TimedeltaResponse():
-    delta: timedelta
+    delta: str
     explanation: str
 
     def __init__(self, delta: timedelta, explanation: str):
-        self.delta = delta
+        self.delta = str(delta)
         self.explanation = explanation
 
     def to_dict(self):

@@ -1,0 +1,9 @@
+POST /subtract_timestamp HTTP/1.1
+Host: localhost:5010
+content-type: application/json
+
+
+{    
+    "timestamp1": "2025-12-13T08:00:00",
+    "timestamp2": "2025-12-15T08:00:00"
+}       

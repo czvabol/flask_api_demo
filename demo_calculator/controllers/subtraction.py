@@ -12,7 +12,8 @@ class Subtraction(BackgroundResource):
         service: AbstractCalculator = self.Container.Calculator
 
         result = service.subtract(requestData.a, requestData.b)
+        explanation = f'{requestData.a} - {requestData.b} = {result}'
 
-        response = NumberResponse(result)
+        response = NumberResponse(result, explanation).to_dict()
 
         return jsonify(response)

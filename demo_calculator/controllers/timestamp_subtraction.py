@@ -8,10 +8,11 @@ class TimestampSubtraction(BackgroundResource):
     def post(self):
         requestData: TwoTimestampRequest = TwoTimestampRequest.parse_obj(request.json)
 
-        service = self.Container.Calculator
+        service = self.Container.DatetimeCalculator
 
-        result = service.subtract(requestData.a, requestData.b)
+        result = service.time_difference(requestData.timestamp1, requestData.timestamp2)
+        explanation = f' Difference between {requestData.timestamp1} and {requestData.timestamp2} is {result}'
 
-        response = TimedeltaResponse(result)
+        response = TimedeltaResponse(result, explanation).to_dict()
 
         return jsonify(response)
