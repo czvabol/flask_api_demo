@@ -4,10 +4,7 @@ content-type: application/json
 
 {
     "members":[
-        "Alice",
-        "Bob",
-        "Charlie",
-        "Tom",
-        "George"
-    ]
+        "Petr",
+        "Stefan"
+            ]
 }
